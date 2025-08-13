@@ -1,6 +1,6 @@
-# 3D Drone Flight Simulation System
+# AirSpace Planner - 3D Drone Flight Simulation & Conflict Detection System
 
-A comprehensive web-based 3D drone flight simulation system with real-time conflict detection, intelligent path planning, and automated collision resolution.
+**AirSpace Planner is a comprehensive 3D drone flight simulation system that enables real-time visualization of multiple drone trajectories with advanced conflict detection and automated collision avoidance. The platform features an intuitive glass-morphism interface for scenario management, custom drone configuration, and intelligent conflict resolution with actionable safety recommendations. Built for drone operators and airspace managers, it provides predictive analysis and safety validation before actual flight operations.**
 
 ## 🚀 Features
 
