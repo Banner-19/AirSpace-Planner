@@ -1,0 +1,476 @@
+/* Custom styles for drone simulator - Light Theme */
+:root {
+    --drone-conflict: #dc3545;
+    --drone-safe: #198754;
+    --drone-primary: #0d6efd;
+    --sky-blue: #e3f2fd;
+    --cloud-white: #ffffff;
+    --bg-gradient: linear-gradient(135deg, #e8f4fd 0%, #f0f8ff 50%, #e1f5fe 100%);
+    --glass-bg: rgba(255, 255, 255, 0.9);
+    --glass-border: rgba(0, 123, 255, 0.2);
+    --text-primary: #212529;
+    --text-secondary: #6c757d;
+}
+
+body {
+    background: var(--bg-gradient);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: var(--text-primary);
+}
+
+.main-content {
+    margin-top: 60px; /* Account for fixed navbar */
+}
+
+.control-bar {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: 0 2px 10px rgba(0, 123, 255, 0.1);
+}
+
+/* Active drone info in top right corner */
+#active-drone-info .card {
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+#active-drone-info .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.2) !important;
+}
+
+/* Expandable info panel */
+.expandable-info .info-card {
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.expandable-info .clickable-header {
+    user-select: none;
+    transition: all 0.3s ease;
+}
+
+.expandable-info .clickable-header:hover {
+    background: rgba(13, 110, 253, 0.1) !important;
+}
+
+.expandable-info .expandable-content {
+    max-height: 500px;
+    overflow-y: auto;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: top center;
+}
+
+.expandable-info.collapsed .expandable-content {
+    max-height: 0;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    opacity: 0;
+    transform: scaleY(0);
+}
+
+.expandable-info .expansion-icon {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.expandable-info.collapsed .expansion-icon {
+    transform: rotate(180deg);
+}
+
+.transition-smooth {
+    transition: all 0.3s ease;
+}
+
+/* Enhanced info panel animation */
+.info-panel-expanding {
+    animation: expandFromBottom 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes expandFromBottom {
+    0% {
+        transform: translateY(100%) scaleY(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(0) scaleY(1);
+        opacity: 1;
+    }
+}
+
+.info-updated {
+    animation: pulseGlow 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        box-shadow: 0 4px 15px rgba(0, 123, 255, 0.1);
+    }
+    50% {
+        box-shadow: 0 8px 30px rgba(0, 123, 255, 0.3);
+        transform: scale(1.02);
+    }
+}
+
+.footer-info {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    padding: 8px 20px;
+    border-top: 1px solid var(--glass-border);
+    box-shadow: 0 -2px 10px rgba(0, 123, 255, 0.1);
+}
+
+.offcanvas {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    box-shadow: 2px 0 20px rgba(0, 123, 255, 0.15);
+}
+
+.accordion-item {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px !important;
+    margin-bottom: 8px;
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.1);
+}
+
+.accordion-button {
+    background: rgba(255, 255, 255, 0.9) !important;
+    color: var(--text-primary) !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-weight: 500;
+}
+
+.accordion-button:not(.collapsed) {
+    background: rgba(13, 110, 253, 0.1) !important;
+    color: var(--drone-primary) !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+.navbar {
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: 0 2px 20px rgba(0, 123, 255, 0.15);
+}
+
+.navbar-brand {
+    font-weight: 600;
+    color: var(--drone-primary) !important;
+    text-shadow: 0 0 10px rgba(13, 110, 253, 0.3);
+}
+
+.btn-outline-light {
+    color: var(--text-primary);
+    border-color: var(--glass-border);
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.btn-outline-light:hover {
+    background: var(--drone-primary);
+    border-color: var(--drone-primary);
+    color: white;
+}
+
+.card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.1);
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+}
+
+.card-header {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px 15px 0 0 !important;
+}
+
+#threejs-container {
+    background: transparent;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.2);
+}
+
+.drone-item {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.drone-item.conflict {
+    border-color: var(--drone-conflict);
+    background-color: rgba(220, 53, 69, 0.1);
+}
+
+.drone-item.safe {
+    border-color: var(--drone-safe);
+    background-color: rgba(25, 135, 84, 0.1);
+}
+
+.drone-item.primary {
+    border-color: var(--drone-primary);
+    background-color: rgba(13, 110, 253, 0.1);
+}
+
+.drone-name {
+    font-weight: 600;
+    color: var(--bs-light);
+}
+
+.drone-coords {
+    font-size: 0.875rem;
+    color: var(--bs-light);
+    font-family: 'Courier New', monospace;
+}
+
+.scenario-item {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.scenario-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+}
+
+.scenario-item.active {
+    border-color: var(--drone-primary);
+    background-color: rgba(13, 110, 253, 0.1);
+}
+
+.conflict-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+.conflict-indicator.safe {
+    background-color: var(--drone-safe);
+}
+
+.conflict-indicator.conflict {
+    background-color: var(--drone-conflict);
+}
+
+.conflict-indicator.primary {
+    background-color: var(--drone-primary);
+}
+
+.simulation-controls {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+
+.coordinates-display {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.875rem;
+    max-width: 300px;
+    z-index: 1000;
+}
+
+.form-control {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 123, 255, 0.3) !important;
+    color: #212529 !important;
+    border-radius: 8px;
+}
+
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-color: var(--drone-primary) !important;
+    color: #212529 !important;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.form-control::placeholder {
+    color: #6c757d !important;
+    opacity: 0.8;
+}
+
+/* Form labels and text visibility fixes */
+.form-label {
+    color: #212529 !important;
+    font-weight: 600;
+}
+
+.form-label.small {
+    color: #212529 !important;
+    font-weight: 500;
+}
+
+.form-check-label {
+    color: #212529 !important;
+    font-weight: 500;
+}
+
+.text-muted {
+    color: #495057 !important;
+}
+
+/* Offcanvas form styling */
+.offcanvas .form-label,
+.offcanvas .form-check-label,
+.offcanvas .text-muted {
+    color: #212529 !important;
+}
+
+.offcanvas-body {
+    color: #212529 !important;
+}
+
+/* Accordion text visibility */
+.accordion-body {
+    color: #212529 !important;
+}
+
+.accordion-body .text-muted {
+    color: #495057 !important;
+}
+
+/* Coordinate axis color labels */
+.form-label.text-danger {
+    color: #dc3545 !important; /* Red for X */
+    font-weight: 600;
+}
+
+.form-label.text-success {
+    color: #198754 !important; /* Green for Y */
+    font-weight: 600;
+}
+
+.form-label.text-info {
+    color: #0dcaf0 !important; /* Blue for Z */
+    font-weight: 600;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--drone-primary), #4285f4);
+    border: none;
+    box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
+    border-radius: 8px;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 6px 20px rgba(13, 110, 253, 0.4);
+    transform: translateY(-1px);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, var(--drone-safe), #34a853);
+    border: none;
+    box-shadow: 0 4px 15px rgba(25, 135, 84, 0.3);
+    border-radius: 8px;
+}
+
+.btn-success:hover {
+    box-shadow: 0 6px 20px rgba(25, 135, 84, 0.4);
+    transform: translateY(-1px);
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, var(--drone-conflict), #ea4335);
+    border: none;
+    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+    border-radius: 8px;
+}
+
+.btn-danger:hover {
+    box-shadow: 0 6px 20px rgba(220, 53, 69, 0.4);
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+}
+
+.text-success {
+    color: var(--drone-safe) !important;
+}
+
+.text-danger {
+    color: var(--drone-conflict) !important;
+}
+
+/* Loading animation */
+.loading-spinner {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1001;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    #threejs-container {
+        height: 400px;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .row .col-4 {
+        margin-bottom: 0.5rem;
+    }
+    
+    .simulation-controls .btn {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+    }
+}
